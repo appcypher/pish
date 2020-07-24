@@ -25,7 +25,13 @@ function fish_prompt
     set status_indicator "$red❯$red❯$red❯"
   end
 
-	set -l cwd (trailing_path)$cyan(basename (prompt_pwd))
+  set -l basename (basename (prompt_pwd))
+
+  if test "$basename" = '~'; or test "$basename" = '/'
+    set cwd $cyan$basename
+  else
+    set cwd (trailing_path)$cyan(basename (prompt_pwd))
+  end
 
   if [ (_git_branch_name) ]
 
@@ -78,6 +84,3 @@ end
 function _is_git_dirty
   echo (command git status -s --ignore-submodules=dirty ^/dev/null)
 end
-
-
-
