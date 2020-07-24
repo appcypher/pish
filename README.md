@@ -1,6 +1,9 @@
 # pish
 A minimal fish shell prompt made of raw fish. A minor improvement over the sashimi prompt.
 
+<p align="center">
+   <img src="media/pish.png" alt="screenshot"/>
+</p>
 
 ## Features
 
